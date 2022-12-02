@@ -5,3 +5,4 @@ fp-info-cache
 *.stp
 *.step
 /Out
+*.kicad_prl
