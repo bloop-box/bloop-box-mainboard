@@ -3,7 +3,7 @@ name: KiBot Base
 on:
   workflow_call:
     inputs:
-      dir:
+      config-file:
         required: true
         type: string
 
@@ -20,7 +20,7 @@ jobs:
           kicad: 5
           dir: Generated
           config: kibot.yml
-          board: ${{ inputs.dir }}/*.kicad_pcb
+          board: ${{ inputs.config-file }}
           skip: run_drc
           targets: __NONE__
 
@@ -43,7 +43,7 @@ jobs:
           kicad: 5
           dir: Generated
           config: kibot.yml
-          board: ${{ inputs.dir }}/*.kicad_pcb
+          board: ${{ inputs.config-file }}
           skip: run_erc
           targets: __NONE__
 
@@ -66,7 +66,7 @@ jobs:
           kicad: 5
           dir: Render
           config: kibot.yml
-          board: ${{ inputs.dir }}/*.kicad_pcb
+          board: ${{ inputs.config-file }}
           skip: all
 
       - name: upload results
