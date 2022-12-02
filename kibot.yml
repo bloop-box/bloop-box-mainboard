@@ -51,23 +51,23 @@ outputs:
     options:
       blacklist: 'DNF*'
 
-  - name: pcb_top_g
-    comment: "PCB render top green"
+  - name: pcb_top
+    comment: "PCB render top"
     type: pcbdraw
-    dir: PCB/green
+    dir: PCB
     options:
       format: jpg
-      show_components: all
+      show_components: none
       dpi: 600
 
-  - name: pcb_bot_g
-    comment: "PCB render bottom green"
+  - name: pcb_bot
+    comment: "PCB render bottom"
     type: pcbdraw
-    dir: PCB/green
+    dir: PCB
     options:
       format: jpg
       bottom: True
-      show_components: all
+      show_components: none
       dpi: 600
 
   - name: step
@@ -76,4 +76,4 @@ outputs:
     dir: 3D
     options:
       metric_units: true
-      origin: 85,66.2
+      origin: grid
