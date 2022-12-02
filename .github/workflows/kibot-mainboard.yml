@@ -1,4 +1,4 @@
-name: KiBot Base
+name: KiBot Mainboard
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
       - "Mainboard/*.kicad_sch"
       - "Mainboard/*.kicad_pcb"
       - "Mainboard/*.kicad_pro"
-      - "config.kibot.yml"
+      - "kibot.yml"
       - ".github/workflows/kibot-mainboard.yml"
       - ".github/workflows/kibot-base.yml"
   pull_request:
@@ -15,7 +15,7 @@ on:
       - "Mainboard/*.kicad_sch"
       - "Mainboard/*.kicad_pcb"
       - "Mainboard/*.kicad_pro"
-      - "config.kibot.yml"
+      - "kibot.yml"
       - ".github/workflows/kibot-mainboard.yml"
       - ".github/workflows/kibot-base.yml"
 

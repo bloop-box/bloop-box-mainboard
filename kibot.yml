@@ -57,7 +57,7 @@ outputs:
     dir: PCB/green
     options:
       format: jpg
-      show_components: none
+      show_components: all
       dpi: 600
 
   - name: pcb_bot_g
@@ -67,7 +67,7 @@ outputs:
     options:
       format: jpg
       bottom: True
-      show_components: none
+      show_components: all
       dpi: 600
 
   - name: step

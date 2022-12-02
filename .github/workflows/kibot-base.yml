@@ -17,7 +17,6 @@ jobs:
       - name: Run ERC
         uses: INTI-CMNB/KiBot@v2_k6
         with:
-          kicad: 5
           dir: Generated
           config: kibot.yml
           board: ${{ inputs.config-file }}
@@ -40,7 +39,6 @@ jobs:
       - name: Run DRC
         uses: INTI-CMNB/KiBot@v2_k6
         with:
-          kicad: 5
           dir: Generated
           config: kibot.yml
           board: ${{ inputs.config-file }}
@@ -63,7 +61,6 @@ jobs:
 
       - uses: INTI-CMNB/KiBot@v2_k6
         with:
-          kicad: 5
           dir: Render
           config: kibot.yml
           board: ${{ inputs.config-file }}
