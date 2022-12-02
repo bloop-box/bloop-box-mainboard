@@ -1,0 +1,26 @@
+name: KiBot Base
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "Mainboard/*.kicad_sch"
+      - "Mainboard/*.kicad_pcb"
+      - "Mainboard/*.kicad_pro"
+      - "config.kibot.yml"
+      - ".github/workflows/kibot-mainboard.yml"
+      - ".github/workflows/kibot-base.yml"
+  pull_request:
+    paths:
+      - "Mainboard/*.kicad_sch"
+      - "Mainboard/*.kicad_pcb"
+      - "Mainboard/*.kicad_pro"
+      - "config.kibot.yml"
+      - ".github/workflows/kibot-mainboard.yml"
+      - ".github/workflows/kibot-base.yml"
+
+jobs:
+  call-base-workflow:
+    uses: ./.github/workflows/kibot-base.yml
+    with:
+      dir: Mainboard
