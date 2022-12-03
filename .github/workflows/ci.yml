@@ -13,7 +13,7 @@ jobs:
     uses: bloop-box/reusable-workflows/.github/workflows/kibot-check.yml@main
     with:
       config-file: kibot.yml
-      board-file: LED-Board/BloopBox LED-Board.kicad_pcb
+      board-file: pcb/BloopBox Mainboard.kicad_pcb
 
   docs:
     name: Docs
@@ -21,4 +21,4 @@ jobs:
     uses: bloop-box/reusable-workflows/.github/workflows/kibot-docs.yml@main
     with:
       config-file: kibot.yml
-      board-file: LED-Board/BloopBox LED-Board.kicad_pcb
+      board-file: pcb/BloopBox Mainboard.kicad_pcb
