@@ -1,4 +1,4 @@
-name: KiBot Base
+name: KiBot Check Base
 
 on:
   workflow_call:
@@ -25,7 +25,7 @@ jobs:
               - '.github/workflows/ci.yml'
               - '.github/workflows/kibot-check-base.yml'
               - 'kibot.yml'
-              - '${{ input.folder }}/*.kicad_{pcb,pro,sch}"'
+              - '${{ inputs.folder }}/*.kicad_{pcb,pro,sch}"'
 
   ERC:
     runs-on: ubuntu-latest
