@@ -43,32 +43,48 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: INTI-CMNB/KiBot@v2_k6
+      - name: Render LED-Board
+        uses: INTI-CMNB/KiBot@v2_k6
         with:
           dir: github-pages/LED-Board
           config: kibot.yml
           board: LED-Board/BloopBox LED-Board.kicad_pcb
           skip: all
 
-      - uses: INTI-CMNB/KiBot@v2_k6
+      - name: Render Mainboard
+        uses: INTI-CMNB/KiBot@v2_k6
         with:
           dir: github-pages/Mainboard
           config: kibot.yml
           board: Mainboard/BloopBox Mainboard.kicad_pcb
           skip: all
 
-      - uses: INTI-CMNB/KiBot@v2_k6
+      - name: Render Tailboard
+        uses: INTI-CMNB/KiBot@v2_k6
         with:
           dir: github-pages/Tailboard
           config: kibot.yml
           board: Tailboard/BloopBox Tailboard.kicad_pcb
           skip: all
 
-      - name: upload results
-        uses: actions/upload-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
           path: github-pages
 
-      - name: deploy
+  deploy:
+    needs: render
+    if: ${{ github.ref == 'refs/heads/main' }}
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v1
