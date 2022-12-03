@@ -17,18 +17,21 @@ on:
 
 jobs:
   led-board-checks:
+    name: LED-Board Checks
     uses: ./.github/workflows/kibot-check-base.yml
     with:
       folder: LED-Board
       config-file: LED-Board/BloopBox LED-Board.kicad_pcb
 
   mainboard-checks:
+    name: Mainboard Checks
     uses: ./.github/workflows/kibot-check-base.yml
     with:
       folder: Mainboard
       config-file: Mainboard/BloopBox Mainboard.kicad_pcb
 
   tailboard-checks:
+    name: Tailboard Checks
     uses: ./.github/workflows/kibot-check-base.yml
     with:
       folder: Tailboard
@@ -68,7 +71,7 @@ jobs:
           skip: all
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
           path: github-pages
 
