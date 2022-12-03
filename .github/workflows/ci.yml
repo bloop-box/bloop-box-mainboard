@@ -1,4 +1,4 @@
-name: KiBot LED-Board
+name: CI
 
 on:
   workflow_dispatch:
@@ -18,8 +18,6 @@ on:
 jobs:
   led-board-checks:
     uses: ./.github/workflows/kibot-check-base.yml
-    needs: change-check
-    if: needs.change-check.outputs.led-board == 'true'
     with:
       folder: LED-Board
       config-file: LED-Board/BloopBox LED-Board.kicad_pcb
