@@ -91,3 +91,5 @@ outputs:
   - name: navigate_results
     comment: "Navigate Results"
     type: navigate_results
+    options:
+      link_from_root: index.html
