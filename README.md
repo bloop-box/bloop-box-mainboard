@@ -13,7 +13,7 @@ The hardware is published under the [CERN Open Hardware Licence Version 2 - Perm
 - uHAT format (fits on a Raspberry Pi Zero)
 - Connectors for:
   - Tailboard (Power supply, buttons, LEDs)
-  - SPI NFC-reader
+  - SPI NFC-reader (Pinout fitting for *PN532 V3* Module)
   - Speaker
   - RGB-LED or LED-Board
   - I2C (optional) with either 3.3V or 5V (set through solder jumper)
