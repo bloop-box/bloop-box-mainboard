@@ -25,3 +25,5 @@ jobs:
     with:
       folder: Mainboard
       config-file: Mainboard/BloopBox Mainboard.kicad_pcb
+    secrets:
+      DOCS_DEPLOY_KEY: ${{ secrets.DOCS_DEPLOY_KEY }}
