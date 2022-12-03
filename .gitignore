@@ -6,3 +6,5 @@ fp-info-cache
 *.step
 /Out
 *.kicad_prl
+\#auto_saved_files\#
+_autosave-*
