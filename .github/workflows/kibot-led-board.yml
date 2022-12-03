@@ -23,4 +23,5 @@ jobs:
   call-base-workflow:
     uses: ./.github/workflows/kibot-base.yml
     with:
+      folder: LED-Board
       config-file: LED-Board/BloopBox LED-Board.kicad_pcb

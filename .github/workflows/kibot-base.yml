@@ -3,6 +3,9 @@ name: KiBot Base
 on:
   workflow_call:
     inputs:
+      folder:
+        required: true
+        type: string
       config-file:
         required: true
         type: string
@@ -71,3 +74,13 @@ jobs:
         with:
           name: Render
           path: Render
+
+      - name: deploy
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: Render
+          ssh-key: ${{ secrets.DOCS_DEPLOY_KEY }}
+          branch: main
+          repository-name: bloop-box/bloop-box-hardware-docs
+          target-folder: ${{ inputs.folder }}

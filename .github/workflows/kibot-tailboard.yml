@@ -23,4 +23,5 @@ jobs:
   call-base-workflow:
     uses: ./.github/workflows/kibot-base.yml
     with:
+      folder: Tailboard
       config-file: Tailboard/BloopBox Tailboard.kicad_pcb
