@@ -80,6 +80,7 @@ outputs:
 
   - name: basic_render_3d_30deg
     comment: "3D view from 30 degrees"
+    type: render_3d
     dir: 3D
     output_id: 30deg
     options:
