@@ -1,16 +1,13 @@
-# Bloop Box Hardware
+# Bloop Box Mainboard
 
-[![CI](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/ci.yml/badge.svg)](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/ci.yml)
+[![CI](https://github.com/bloop-box/bloop-box-mainboard/actions/workflows/ci.yml/badge.svg)](https://github.com/bloop-box/bloop-box-mainboard/actions/workflows/ci.yml)
 
-All boards are designed using KiCAD 6 with production and assembly by JLCPCB (not a sponsor) in mind. All parts were selected to be available from JLCPCB at the time of creating these boards with as many parts used from their basic library as possible.
+![Mainboard 3D Render](https://bloop-box.github.io/bloop-box-mainboard/3D/BloopBox%20Mainboard-3D_top_1.0.png)
 
-The hardware is published under the [CERN Open Hardware Licence Version 2 - Permissive](LICENSES/CERN-OHL-P-2.0.txt)
+[Documentation](https://bloop-box.github.io/bloop-box-mainboard)
 
-## Mainboard
-
-![Mainboard 3D Render](https://bloop-box.github.io/bloop-box-hardware/Mainboard/3D/BloopBox%20Mainboard-3D_top_1.0.png)
-
-[Documentation](https://bloop-box.github.io/bloop-box-hardware/Mainboard)
+The board is designed using KiCAD 6 with production and assembly by JLCPCB in mind. All parts are selected to be
+available from JLCPCB. At the time of writing as many parts as possible are used from their basic library.
 
 - uHAT format (fits on a Raspberry Pi Zero)
 - Connectors for:
@@ -29,30 +26,3 @@ Pinout of all connectors is printed on the bottom of the board
 See schematics for detailed GPIO pinout
 
 The board fulfills all specifications for a uHAT but has no ID EEPROM to save cost
-
-## Tailboard
-
-![Tailboard 3D Render](https://bloop-box.github.io/bloop-box-hardware/Tailboard/3D/BloopBox%20Tailboard-3D_top_1.0.png)
-
-[Documentation](https://bloop-box.github.io/bloop-box-hardware/Tailboard)
-
-- two power inputs
-  - 5.5x2.1mm barrel-jack
-  - USB-C with PowerDelivery support
-- Can handle 5V and 8 to 28V inputs 
-- Can deliver 5V with up to 3A to the mainboard (assuming it gets enough power)
-- Additional circuitry to prevent damage in case two power supplies are connected
-- Two buttons connected to the Raspberry Pi, per default used for volume control
-- Three LEDs to show status of power supply, can also be remote-controlled by Raspberry Pi through the Mainboard
-
-Firmware for the PD-Controller will be published once it's ready
-
-An additional, simpler Tailboard that only has 5V input is planned 
-
-## LED-Board
-
-![LED-Board 3D Render](https://bloop-box.github.io/bloop-box-hardware/LED-Board/3D/BloopBox%20LED-Board-3D_top_1.0.png)
-
-[Documentation](https://bloop-box.github.io/bloop-box-hardware/LED-Board)
-
-Allows the RGB LED to be mounted independent of the Mainboard

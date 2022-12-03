@@ -1,7 +1,7 @@
-name: CI
+name: Pull Request
 
 on:
-  push:
+  pull_request:
     paths:
       - "pcb/*.kicad_*"
       - "kibot.yml"
@@ -11,13 +11,6 @@ jobs:
   check:
     name: Check
     uses: bloop-box/reusable-workflows/.github/workflows/kibot-check.yml
-    with:
-      config-file: kibot.yml
-      board-file: LED-Board/BloopBox LED-Board.kicad_pcb
-
-  docs:
-    name: Docs
-    uses: bloop-box/reusable-workflows/.github/workflows/kibot-docs.yml
     with:
       config-file: kibot.yml
       board-file: LED-Board/BloopBox LED-Board.kicad_pcb
