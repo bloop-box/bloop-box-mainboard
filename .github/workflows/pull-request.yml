@@ -5,7 +5,7 @@ on:
     paths:
       - "pcb/*.kicad_*"
       - "kibot.yml"
-      - ".github/workflows/pr.yml"
+      - ".github/workflows/pull-request.yml"
 
 jobs:
   check:
