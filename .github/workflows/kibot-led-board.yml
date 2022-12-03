@@ -25,5 +25,4 @@ jobs:
     with:
       folder: LED-Board
       config-file: LED-Board/BloopBox LED-Board.kicad_pcb
-    secrets:
-      DOCS_DEPLOY_KEY: ${{ secrets.DOCS_DEPLOY_KEY }}
+    secrets: inherit

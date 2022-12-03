@@ -25,5 +25,4 @@ jobs:
     with:
       folder: Tailboard
       config-file: Tailboard/BloopBox Tailboard.kicad_pcb
-    secrets:
-      DOCS_DEPLOY_KEY: ${{ secrets.DOCS_DEPLOY_KEY }}
+    secrets: inherit

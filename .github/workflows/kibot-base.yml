@@ -9,6 +9,9 @@ on:
       config-file:
         required: true
         type: string
+    secrets:
+      DOCS_DEPLOY_KEY:
+        required: true
 
 jobs:
   ERC:
