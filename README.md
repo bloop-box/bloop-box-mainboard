@@ -1,8 +1,6 @@
 # Bloop Box Hardware
 
-[![KiBot Mainboard](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-mainboard.yml/badge.svg)](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-mainboard.yml)
-[![KiBot Tailboard](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-tailboard.yml/badge.svg)](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-tailboard.yml)
-[![KiBot LED-Board](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-led-board.yml/badge.svg)](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-led-board.yml)
+[![ci](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/ci.yml/badge.svg)](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/ci.yml)
 
 All boards are designed using KiCAD 6 with production and assembly by JLCPCB (not a sponsor) in mind. All parts were selected to be available from JLCPCB at the time of creating these boards with as many parts used from their basic library as possible.
 

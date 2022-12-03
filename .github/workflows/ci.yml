@@ -1,0 +1,76 @@
+name: KiBot LED-Board
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "**/*.kicad_{pcb,pro,sch}"
+      - "kibot.yml"
+      - ".github/workflows/ci.yml"
+      - ".github/workflows/kibot-check-base.yml"
+  pull_request:
+    paths:
+      - "**/*.kicad_{pcb,pro,sch}"
+      - "kibot.yml"
+      - ".github/workflows/ci.yml"
+      - ".github/workflows/kibot-check-base.yml"
+
+jobs:
+  led-board-checks:
+    uses: ./.github/workflows/kibot-check-base.yml
+    needs: change-check
+    if: needs.change-check.outputs.led-board == 'true'
+    with:
+      folder: LED-Board
+      config-file: LED-Board/BloopBox LED-Board.kicad_pcb
+
+  mainboard-checks:
+    uses: ./.github/workflows/kibot-check-base.yml
+    with:
+      folder: Mainboard
+      config-file: Mainboard/BloopBox Mainboard.kicad_pcb
+
+  tailboard-checks:
+    uses: ./.github/workflows/kibot-check-base.yml
+    with:
+      folder: Tailboard
+      config-file: Tailboard/BloopBox Tailboard.kicad_pcb
+
+  render:
+    needs: [led-board-checks, mainboard-checks, tailboard-checks]
+    if: ${{ github.ref == 'refs/heads/main' }}
+    name: "Render"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: INTI-CMNB/KiBot@v2_k6
+        with:
+          dir: github-pages/LED-Board
+          config: kibot.yml
+          board: LED-Board/BloopBox LED-Board.kicad_pcb
+          skip: all
+
+      - uses: INTI-CMNB/KiBot@v2_k6
+        with:
+          dir: github-pages/Mainboard
+          config: kibot.yml
+          board: Mainboard/BloopBox Mainboard.kicad_pcb
+          skip: all
+
+      - uses: INTI-CMNB/KiBot@v2_k6
+        with:
+          dir: github-pages/Tailboard
+          config: kibot.yml
+          board: Tailboard/BloopBox Tailboard.kicad_pcb
+          skip: all
+
+      - name: upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-pages
+          path: github-pages
+
+      - name: deploy
+        uses: actions/deploy-pages@v1
