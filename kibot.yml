@@ -77,3 +77,19 @@ outputs:
     options:
       metric_units: true
       origin: grid
+
+  - name: basic_render_3d_30deg
+    comment: "3D view from 30 degrees"
+    type: render_3d
+    dir: 3D
+    output_id: 30deg
+    options:
+      ray_tracing: true
+      rotate_x: 3
+      rotate_z: -2
+
+  - name: navigate_results
+    comment: "Navigate Results"
+    type: navigate_results
+    options:
+      link_from_root: index.html

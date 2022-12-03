@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "**/*.kicad_{pcb,pro,sch}"
+      - "kibot.yml"
+      - ".github/workflows/ci.yml"
+      - ".github/workflows/kibot-check-base.yml"
+  pull_request:
+    paths:
+      - "**/*.kicad_{pcb,pro,sch}"
+      - "kibot.yml"
+      - ".github/workflows/ci.yml"
+      - ".github/workflows/kibot-check-base.yml"
+
+jobs:
+  led-board-checks:
+    name: LED-Board Checks
+    uses: ./.github/workflows/kibot-check-base.yml
+    with:
+      folder: LED-Board
+      config-file: LED-Board/BloopBox LED-Board.kicad_pcb
+
+  mainboard-checks:
+    name: Mainboard Checks
+    uses: ./.github/workflows/kibot-check-base.yml
+    with:
+      folder: Mainboard
+      config-file: Mainboard/BloopBox Mainboard.kicad_pcb
+
+  tailboard-checks:
+    name: Tailboard Checks
+    uses: ./.github/workflows/kibot-check-base.yml
+    with:
+      folder: Tailboard
+      config-file: Tailboard/BloopBox Tailboard.kicad_pcb
+
+  render:
+    needs: [led-board-checks, mainboard-checks, tailboard-checks]
+    if: ${{ github.ref == 'refs/heads/main' }}
+    name: "Render"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Render LED-Board
+        uses: INTI-CMNB/KiBot@v2_k6
+        with:
+          dir: github-pages/LED-Board
+          config: kibot.yml
+          board: LED-Board/BloopBox LED-Board.kicad_pcb
+          skip: all
+
+      - name: Render Mainboard
+        uses: INTI-CMNB/KiBot@v2_k6
+        with:
+          dir: github-pages/Mainboard
+          config: kibot.yml
+          board: Mainboard/BloopBox Mainboard.kicad_pcb
+          skip: all
+
+      - name: Render Tailboard
+        uses: INTI-CMNB/KiBot@v2_k6
+        with:
+          dir: github-pages/Tailboard
+          config: kibot.yml
+          board: Tailboard/BloopBox Tailboard.kicad_pcb
+          skip: all
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: github-pages
+
+  deploy:
+    needs: render
+    if: ${{ github.ref == 'refs/heads/main' }}
+    name: "Deploy"
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

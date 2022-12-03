@@ -1,14 +1,16 @@
 # Bloop Box Hardware
 
-[![KiBot Mainboard](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-mainboard.yml/badge.svg)](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-mainboard.yml)
-[![KiBot Tailboard](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-tailboard.yml/badge.svg)](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-tailboard.yml)
-[![KiBot LED-Board](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-led-board.yml/badge.svg)](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/kibot-led-board.yml)
+[![CI](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/ci.yml/badge.svg)](https://github.com/bloop-box/bloop-box-hardware/actions/workflows/ci.yml)
 
 All boards are designed using KiCAD 6 with production and assembly by JLCPCB (not a sponsor) in mind. All parts were selected to be available from JLCPCB at the time of creating these boards with as many parts used from their basic library as possible.
 
 The hardware is published under the [CERN Open Hardware Licence Version 2 - Permissive](LICENSES/CERN-OHL-P-2.0.txt)
 
 ## Mainboard
+
+![Mainboard 3D Render](https://bloop-box.github.io/bloop-box-hardware/Mainboard/3D/BloopBox%20Mainboard-3D_top_1.0.png)
+
+[Documentation](https://bloop-box.github.io/bloop-box-hardware/Mainboard)
 
 - uHAT format (fits on a Raspberry Pi Zero)
 - Connectors for:
@@ -24,11 +26,15 @@ The hardware is published under the [CERN Open Hardware Licence Version 2 - Perm
 
 Pinout of all connectors is printed on the bottom of the board
 
-See schematics for detailled GPIO pinout
+See schematics for detailed GPIO pinout
 
 The board fulfills all specifications for a uHAT but has no ID EEPROM to save cost
 
 ## Tailboard
+
+![Tailboard 3D Render](https://bloop-box.github.io/bloop-box-hardware/Tailboard/3D/BloopBox%20Tailboard-3D_top_1.0.png)
+
+[Documentation](https://bloop-box.github.io/bloop-box-hardware/Tailboard)
 
 - two power inputs
   - 5.5x2.1mm barrel-jack
@@ -44,5 +50,9 @@ Firmware for the PD-Controller will be published once it's ready
 An additional, simpler Tailboard that only has 5V input is planned 
 
 ## LED-Board
+
+![LED-Board 3D Render](https://bloop-box.github.io/bloop-box-hardware/LED-Board/3D/BloopBox%20LED-Board-3D_top_1.0.png)
+
+[Documentation](https://bloop-box.github.io/bloop-box-hardware/LED-Board)
 
 Allows the RGB LED to be mounted independent of the Mainboard
