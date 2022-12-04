@@ -101,6 +101,9 @@
     )
   )
 
+  (property "DATE" "~DATE~")
+  (property "VERSION" "~VERSION~")
+
   (net 0 "")
   (net 1 "/OUTP")
   (net 2 "/OUTN")
@@ -5584,7 +5587,7 @@
   (gr_text "08" (at 143.25 69.25 90) (layer "B.SilkS") (tstamp e338d904-cb71-47af-9bad-eca5cd8bc1f2)
     (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
   )
-  (gr_text "BloopBox Mainboard\n${VERSION} %{DATE}" (at 150 55) (layer "B.SilkS") (tstamp f8459c43-3293-46a3-ac63-15aa8c5e10ef)
+  (gr_text "${TITLE}\n${VERSION} ${DATE}" (at 150 55) (layer "B.SilkS") (tstamp f8459c43-3293-46a3-ac63-15aa8c5e10ef)
     (effects (font (size 1.2 1.2) (thickness 0.2)) (justify mirror))
   )
   (gr_text "V+" (at 177.25 59.75) (layer "B.SilkS") (tstamp fa7f4239-62d4-4250-96a9-dd82deb60832)
@@ -5620,7 +5623,7 @@
   (gr_text "JLCJLCJLCJLC" (at 178 82.5) (layer "F.SilkS") (tstamp 9bf8d1d2-6c0b-4d38-88fb-51da146effc2)
     (effects (font (size 0.8 0.8) (thickness 0.15)))
   )
-  (gr_text "BloopBox Mainboard\n${VERSION} ${DATE}" (at 150 42) (layer "F.SilkS") (tstamp a05d7a75-f7a0-4ed2-9815-279e337f217d)
+  (gr_text "${TITLE}\n${VERSION} ${DATE}" (at 150 42) (layer "F.SilkS") (tstamp a05d7a75-f7a0-4ed2-9815-279e337f217d)
     (effects (font (size 1.2 1.2) (thickness 0.2)))
   )
   (gr_text "TailBoard" (at 166.25 68.75) (layer "F.SilkS") (tstamp a549ac28-63a8-495d-b167-483ed44ca6b4)
