@@ -497,5 +497,8 @@
       ""
     ]
   ],
-  "text_variables": {}
+  "text_variables": {
+    "DATE": "~DATE~",
+    "VERSION": "~VERSION~"
+  }
 }
