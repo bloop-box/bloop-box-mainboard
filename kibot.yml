@@ -6,6 +6,11 @@ preflight:
   run_drc: true
   check_zone_fills: false
   ignore_unconnected: false
+  set_text_variables:
+    - variable: "VERSION"
+      command: git rev-parse --short HEAD
+    - variable: "DATE"
+      command: git log -1 --format='%as' -- "$KIBOT_PCB_NAME"
 
 global:
   output: '%f-%i.%x'
