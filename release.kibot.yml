@@ -1,6 +1,13 @@
 kibot:
   version: 1
 
+preflight:
+  set_text_variables:
+    - variable: "VERSION"
+      command: git describe --tags
+    - variable: "DATE"
+      command: git log -1 --format='%as' -- "$KIBOT_PCB_NAME"
+
 import:
   - file: kibot.yml
     outputs:
