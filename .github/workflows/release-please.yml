@@ -7,6 +7,10 @@ on:
 
 jobs:
   release-please:
+    permissions:
+      contents: write
+      pull-requests: write
+
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
@@ -16,6 +20,9 @@ jobs:
           release-type: simple
 
   upload-assets:
+    permissions:
+      contents: write
+
     needs: release-please
     if: ${{ needs.release.outputs.release_created }}
     runs-on: ubuntu-latest
