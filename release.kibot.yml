@@ -1,6 +1,21 @@
 kibot:
   version: 1
 
+import:
+  - file: kibot.yml
+    outputs:
+      - print_sch
+      - print_front
+      - print_bottom
+      - interactive_bom
+      - pcb_top
+      - pcb_bot
+      - step
+      - basic_render_3d_30deg
+    filters: all
+    global: none
+    preflights: none
+
 variants:
   - name: rotated
     comment: 'Just a place holder for the rotation filter'
@@ -55,8 +70,8 @@ outputs:
       metric_units: false
       output: "%f%i.%x"
 
-  - name: JLCPCB
-    comment: ZIP file for JLCPCB
+  - name: JLCPCB_gerber_zip
+    comment: ZIP file for JLCPCB gerber
     type: compress
     options:
       output: '%f_gerber_jlc.%x'
@@ -109,3 +124,27 @@ outputs:
         hide_pcb_info: true
         hide_stats_info: true
         quote_all: true
+
+  - name: docs_zip
+    comment: ZIP file for docs
+    type: compress
+    options:
+      output: '%f_docs.%x'
+      move_files: true
+      files:
+        - from_output: print_sch
+          dest: /
+        - from_output: print_front
+          dest: /
+        - from_output: print_bottom
+          dest: /
+        - from_output: interactive_bom
+          dest: /
+        - from_output: pcb_top
+          dest: /
+        - from_output: pcb_bot
+          dest: /
+        - from_output: step
+          dest: /
+        - from_output: basic_render_3d_30deg
+          dest: /

@@ -1,0 +1,42 @@
+name: release-please
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: simple
+
+  upload-assets:
+    needs: release-please
+    if: ${{ needs.release.outputs.release_created }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          - ref: ${{ needs.release.outputs.tag_name }}
+
+      - name: Build
+        uses: INTI-CMNB/KiBot@v2_k6
+        with:
+          dir: build
+          config: ${{ inputs.config-file }}
+          board: ${{ inputs.board-file }}
+          skip: run_erc,run_drc
+
+      - name: Upload Release Assets
+        id: upload-release-assets
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ needs.release.outputs.tag_name }}
+          files: build/*
