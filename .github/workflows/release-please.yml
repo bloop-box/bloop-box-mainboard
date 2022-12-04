@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          - ref: ${{ needs.release.outputs.tag_name }}
+          ref: ${{ needs.release.outputs.tag_name }}
 
       - name: Build
         uses: INTI-CMNB/KiBot@v2_k6
