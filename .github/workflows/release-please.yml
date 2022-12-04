@@ -40,7 +40,7 @@ jobs:
         uses: INTI-CMNB/KiBot@v2_k6
         with:
           dir: build
-          config: kibot.yml
+          config: release.kibot.yml
           board: pcb/BloopBox Mainboard.kicad_pcb
           skip: run_erc,run_drc
 
