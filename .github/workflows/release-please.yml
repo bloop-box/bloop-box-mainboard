@@ -11,6 +11,10 @@ jobs:
       contents: write
       pull-requests: write
 
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
@@ -24,20 +28,20 @@ jobs:
       contents: write
 
     needs: release-please
-    if: ${{ needs.release.outputs.release_created }}
+    if: ${{ needs.release-please.outputs.release_created }}
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: ${{ needs.release.outputs.tag_name }}
+          ref: ${{ needs.release-please.outputs.tag_name }}
 
       - name: Build
         uses: INTI-CMNB/KiBot@v2_k6
         with:
           dir: build
-          config: ${{ inputs.config-file }}
-          board: ${{ inputs.board-file }}
+          config: kibot.yml
+          board: pcb/BloopBox Mainboard.kicad_pcb
           skip: run_erc,run_drc
 
       - name: Upload Release Assets
@@ -45,5 +49,5 @@ jobs:
         uses: AButler/upload-release-assets@v2.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          release-tag: ${{ needs.release.outputs.tag_name }}
+          release-tag: ${{ needs.release-please.outputs.tag_name }}
           files: build/*
