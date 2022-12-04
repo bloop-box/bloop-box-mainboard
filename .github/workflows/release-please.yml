@@ -7,47 +7,7 @@ on:
 
 jobs:
   release-please:
-    permissions:
-      contents: write
-      pull-requests: write
-
-    outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
-
-    runs-on: ubuntu-latest
-    steps:
-      - uses: google-github-actions/release-please-action@v3
-        id: release
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: simple
-
-  upload-assets:
-    permissions:
-      contents: write
-
-    needs: release-please
-    if: ${{ needs.release-please.outputs.release_created }}
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ needs.release-please.outputs.tag_name }}
-
-      - name: Build
-        uses: INTI-CMNB/KiBot@v2_k6
-        with:
-          dir: build
-          config: release.kibot.yml
-          board: pcb/BloopBox Mainboard.kicad_pcb
-          skip: run_erc,run_drc
-
-      - name: Upload Release Assets
-        id: upload-release-assets
-        uses: AButler/upload-release-assets@v2.0
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          release-tag: ${{ needs.release-please.outputs.tag_name }}
-          files: build/*
+    uses: bloop-box/reusable-workflows/.github/workflows/release-please.yml@main
+    with:
+      config-file: release.kibot.yml
+      board-file: pcb/BloopBox Mainboard.kicad_pcb
