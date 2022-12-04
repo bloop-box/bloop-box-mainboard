@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    tags:
+      - "v*.*"
+
+jobs:
+  check:
+    name: Check
+    uses: bloop-box/reusable-workflows/.github/workflows/kibot-check.yml@main
+    with:
+      config-file: kibot.yml
+      board-file: pcb/BloopBox Mainboard.kicad_pcb
+
+  release:
+    name: Release
+    needs: check
+    uses: bloop-box/reusable-workflows/.github/workflows/kibot-release.yml@main
+    with:
+      config-file: release.kibot.yml
+      board-file: pcb/BloopBox Mainboard.kicad_pcb
