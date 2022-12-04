@@ -8,7 +8,7 @@ preflight:
   ignore_unconnected: false
 
 global:
-  output: '%f-%i_%r.%x'
+  output: '%f-%i.%x'
 
 filters:
   - name: 'exclude_any'

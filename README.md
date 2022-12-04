@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/bloop-box/bloop-box-mainboard/actions/workflows/ci.yml/badge.svg)](https://github.com/bloop-box/bloop-box-mainboard/actions/workflows/ci.yml)
 
-![Mainboard 3D Render](https://bloop-box.github.io/bloop-box-mainboard/3D/BloopBox%20Mainboard-3D_top_1.0.png)
+![Mainboard 3D Render](https://bloop-box.github.io/bloop-box-mainboard/3D/BloopBox%20Mainboard-3D_top.png)
 
 [Documentation](https://bloop-box.github.io/bloop-box-mainboard)
 
