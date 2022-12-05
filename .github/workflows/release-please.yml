@@ -11,3 +11,4 @@ jobs:
     with:
       config-file: release.kibot.yml
       board-file: pcb/BloopBox Mainboard.kicad_pcb
+
