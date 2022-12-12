@@ -12,11 +12,11 @@ available from JLCPCB. At the time of writing as many parts as possible are used
 - uHAT format (fits on a Raspberry Pi Zero)
 - Connectors for:
   - Tailboard (Power supply, buttons, LEDs)
-  - SPI NFC-reader (Pinout fitting for *PN532 V3* Module)
+  - SPI NFC-reader (Pinout fitting for *RC522* Module)
   - Speaker
   - RGB-LED or LED-Board
   - I2C (optional) with either 3.3V or 5V (set through solder jumper)
-  - Additional GPIO header (optional)
+  - Additional GPIO header with UART (optional)
 - Speaker is driven by a MAX98357 3W amplifier
   - amplifier gain can be set through jumper (9dB default setting)
   - SD_MODE is set to stereo mix by default, solder jumper for setting left-only 
