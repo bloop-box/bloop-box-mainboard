@@ -30,3 +30,9 @@ jobs:
         run: |
           mkdir build
           eepmake eeprom/eeprom_settings.txt build/eeprom.eep
+
+      - name: Retrieve results
+        uses: actions/upload-artifact@v3
+        with:
+          name: eeprom.eep
+          path: build/eeprom.eep
