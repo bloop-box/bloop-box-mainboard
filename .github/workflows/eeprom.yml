@@ -1,4 +1,4 @@
-name: CI
+name: Eeprom
 
 on:
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
       - name: Build eepmake
         run: |
           git clone https://github.com/raspberrypi/hats.git
-          cd hats/eepromutils && make && make install
+          cd hats/eepromutils && make && sudo make install
 
       - name: Compile eeprom
         run: |
