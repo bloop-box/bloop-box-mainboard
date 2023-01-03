@@ -423,7 +423,6 @@
           "/LED_GREEN",
           "/LED_PWM",
           "/LED_RED",
-          "/Pg",
           "/Rg",
           "/SCL",
           "/SDA",
