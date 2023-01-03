@@ -421,7 +421,6 @@
           "/Gg",
           "/LED_BLUE",
           "/LED_GREEN",
-          "/LED_PWM",
           "/LED_RED",
           "/Rg",
           "/SCL",
