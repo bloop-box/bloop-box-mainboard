@@ -20,9 +20,9 @@ available from JLCPCB. At the time of writing as many parts as possible are used
 - Speaker is driven by a MAX98357 3W amplifier
   - amplifier gain can be set through jumper (9dB default setting)
   - SD_MODE is set to stereo mix by default, solder jumper for setting left-only 
+- Optional ID EEPROM
 
 Pinout of all connectors is printed on the bottom of the board
 
 See schematics for detailed GPIO pinout
 
-The board fulfills all specifications for a uHAT but has no ID EEPROM to save cost
