@@ -1,0 +1,38 @@
+name: Eeprom
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "eeprom/eeprom_settings.txt"
+      - ".github/workflows/eeprom.yml"
+
+jobs:
+  compile-eprom:
+    permissions:
+      contents: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ needs.release-please.outputs.tag_name }}
+
+      - name: Build eepmake
+        run: |
+          git clone https://github.com/raspberrypi/hats.git
+          cd hats/eepromutils && make && sudo make install
+
+      - name: Compile eeprom
+        run: |
+          mkdir build
+          eepmake eeprom/eeprom_settings.txt build/eeprom.eep
+
+      - name: Retrieve results
+        uses: actions/upload-artifact@v3
+        with:
+          name: eeprom.eep
+          path: build/eeprom.eep
