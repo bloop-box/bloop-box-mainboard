@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.0.0](https://github.com/bloop-box/bloop-box-mainboard/compare/v1.0.0...v2.0.0) (2023-01-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove HAT EEPROM
+* remove I2C level shifter
+* remove RGB LED
+
+### Features
+
+* reduce to two layers ([daa27ec](https://github.com/bloop-box/bloop-box-mainboard/commit/daa27ec4ec4a9b25dcfa96f8c26b65ecf9b1ea43))
+* remove HAT EEPROM ([cf92000](https://github.com/bloop-box/bloop-box-mainboard/commit/cf92000fae4ed51b5fee4c6e450fc11b1c285ee3))
+* remove I2C level shifter ([b94c306](https://github.com/bloop-box/bloop-box-mainboard/commit/b94c306e1bfe5751c49da7d8ca183a51e0bcca7e))
+* remove RGB LED ([2c5ac5f](https://github.com/bloop-box/bloop-box-mainboard/commit/2c5ac5f5aaabc408e38f2fca52ec5572b1a649d2))
+
+
+### Bug Fixes
+
+* change LCSC part number of I2C pullup ([f7b5855](https://github.com/bloop-box/bloop-box-mainboard/commit/f7b5855fdd118c38ff95c6d2ad4129af0cdf2dad))
+
 ## 1.0.0 (2023-01-03)
 
 
