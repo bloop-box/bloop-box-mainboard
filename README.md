@@ -8,7 +8,7 @@
 [Documentation](https://bloop-box.github.io/bloop-box-mainboard)
 
 The board is designed using KiCAD 6 with production and assembly by JLCPCB in mind. All parts are selected to be
-available from JLCPCB. At the time of writing as many parts as possible are used from their basic library.
+available from JLCPCB at the time of writing and as many parts as possible are used from their basic library.
 
 - uHAT format (fits on a Raspberry Pi Zero)
 - Connectors for:
