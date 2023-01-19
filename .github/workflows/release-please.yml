@@ -11,34 +11,3 @@ jobs:
     with:
       config-file: release.kibot.yml
       board-file: pcb/BloopBox Mainboard.kicad_pcb
-
-  upload-eeprom:
-    permissions:
-      contents: write
-
-    needs: release-please
-    if: ${{ needs.release-please.outputs.release_created }}
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ needs.release-please.outputs.tag_name }}
-
-      - name: Build eepmake
-        run: |
-          git clone https://github.com/raspberrypi/hats.git
-          cd hats/eepromutils && make && sudo make install
-
-      - name: Compile eeprom
-        run: |
-          mkdir build
-          eepmake eeprom/eeprom_settings.txt build/eeprom.eep
-
-      - name: Upload Release Assets
-        id: upload-release-assets
-        uses: AButler/upload-release-assets@v2.0
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          release-tag: ${{ needs.release-please.outputs.tag_name }}
-          files: build/eeprom.eep
