@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/bloop-box/bloop-box-mainboard/compare/v2.0.0...v2.0.1) (2024-07-31)
+
+
+### Bug Fixes
+
+* copper edge clearance ([5cf6c49](https://github.com/bloop-box/bloop-box-mainboard/commit/5cf6c498986e1e9f9c909ac74e83c215b622d0d5))
+
 ## [2.0.0](https://github.com/bloop-box/bloop-box-mainboard/compare/v1.0.0...v2.0.0) (2023-01-19)
 
 
