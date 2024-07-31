@@ -7509,7 +7509,7 @@
 			)
 		)
 		(property "Footprint" "Module:Raspberry_Pi_Zero_Socketed_THT_FaceDown_MountingHoles"
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "053c5230-c9c3-4be5-97f1-22b84a256980")
@@ -7521,7 +7521,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_3bplus_1p0_reduced.pdf"
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "ccc9d46c-83a8-417a-a9d2-50b79b710ff1")
@@ -7533,7 +7533,7 @@
 			)
 		)
 		(property "Description" "expansion header for Raspberry Pi 2 & 3"
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "b27c083f-2d13-47fb-8947-cf521742d02a")
@@ -8453,17 +8453,6 @@
 			(pinfunction "GPIO21/SCLK1")
 			(pintype "bidirectional")
 			(uuid "324d44cf-194f-45b4-8871-beb560ed9ca9")
-		)
-		(model "${KICAD6_3DMODEL_DIR}/Module.3dshapes/Raspberry_Pi_Zero_Socketed_THT_FaceDown_MountingHoles.wrl"
-			(offset
-				(xyz 1.27 24.13 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
 		)
 		(model "${KICAD6_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_2x20_P2.54mm_Vertical.wrl"
 			(offset
