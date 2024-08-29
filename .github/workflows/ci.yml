@@ -19,7 +19,6 @@ jobs:
 
   docs:
     name: Docs
-    needs: check
     uses: bloop-box/reusable-workflows/.github/workflows/kibot-docs.yml@main
     with:
       config-file: kibot.yml
